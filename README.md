@@ -2,14 +2,16 @@
 
 Affiche les paroles de ta chanson Spotify en temps réel dans ton statut personnalisé Discord.
 
-> **Stack :** Node.js · TypeScript · React · Vite · Tailwind v4 · shadcn/ui (luma) · Framer Motion
+> **Stack :** Node.js · TypeScript · React · Vite · Tailwind v4 · shadcn/ui · Framer Motion
+>
+> **Thème :** dark/light avec transition animée
 
 ---
 
 ## Fonctionnalités
 
 - 🎵 Paroles synchronisées en temps réel via [lrclib.net](https://lrclib.net)
-- 🎨 Interface glassmorphism avec animations Framer Motion
+- 🎨 Interface dark/light avec animations Framer Motion
 - 🔒 Protection anti-ban Discord (rate limiting, déduplication, mutex)
 - ⚙️ Format de statut personnalisable (paroles, titre, artiste…)
 - 🌐 Panneau web local sur `http://localhost:3000`
@@ -27,6 +29,7 @@ Affiche les paroles de ta chanson Spotify en temps réel dans ton statut personn
 ## Installation
 
 ```bash
+git clone https://github.com/Kaysuto/spotify-discord-status.git
 cd spotify-discord-status
 
 # Installer les dépendances backend
@@ -76,10 +79,14 @@ Dans l'onglet **Personnalisation** :
 | Variable | Description |
 |---|---|
 | `{lyrics}` | Ligne de paroles actuelle |
-| `{track}` | Titre de la chanson |
-| `{artist}` | Artiste(s) |
+| `{lyrics_upper}` | Paroles en majuscules |
+| `{song_name}` | Titre de la chanson |
+| `{song_author}` | Artiste(s) |
 
-Exemple : `🎵 {lyrics} — {track}`
+Exemples :
+- `🎵 {lyrics}` ← valeur par défaut
+- `{song_author} — {lyrics}`
+- `🎤 {lyrics_upper}`
 
 ### 4. Lancer
 
@@ -104,13 +111,13 @@ spotify-discord-status/
 │       └── Server.ts           # Serveur Express + API REST
 ├── client/                     # Frontend React + Vite
 │   └── src/
-│       ├── App.tsx             # Layout principal (glassmorphism)
+│       ├── App.tsx             # Layout principal (dark/light, animations)
 │       └── components/
 │           ├── NowPlaying.tsx
 │           ├── SpotifyConfig.tsx
 │           ├── DiscordConfig.tsx
 │           └── CustomizationConfig.tsx
-├── static/                     # Build React (généré par `npm run build`)
+├── static/                     # Build React (généré par npm run build:all)
 ├── config.json                 # Config locale (ignoré par git)
 └── package.json
 ```
