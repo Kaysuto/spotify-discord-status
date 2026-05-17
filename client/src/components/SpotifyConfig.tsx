@@ -63,7 +63,7 @@ export function SpotifyConfig({ onSpotifyConnecte }: Props) {
             href="https://developer.spotify.com/dashboard"
             target="_blank"
             rel="noreferrer"
-            className="text-[#1DB954] underline underline-offset-2 hover:text-[#1DB954]/70 inline-flex items-center gap-0.5"
+            className="text-spotify underline underline-offset-2 hover:text-spotify/70 inline-flex items-center gap-0.5"
           >
             Spotify Dashboard <RiExternalLinkLine size={12} />
           </a>
